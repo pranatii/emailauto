@@ -39,16 +39,7 @@ def ex(searchString,path,page):
         f.write(str(y)+'\n')
     f.close()
 
-    with open("urls.txt", "r") as input:
-        with open("temp.txt", "w") as output:
-            # iterate all lines from file
-            for line in input:
-                # if substring contain in a line then don't write it
-                if "None" not in line.strip("\n"):
-                    output.write(line)
-
-    # replace file with original name
-    os.replace('temp.txt', 'urls.txt')
+  
     with open('urls.txt') as f:
         lines = [line.rstrip() for line in f]
 
