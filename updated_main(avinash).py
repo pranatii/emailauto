@@ -39,7 +39,16 @@ def ex(searchString,path,page):
         f.write(str(y)+'\n')
     f.close()
 
-  
+    with open("urls.txt", "r") as input:
+        with open("temp.txt", "w") as output:
+            # iterate all lines from file
+            for line in input:
+                # if substring contain in a line then don't write it
+                if "None" not in line.strip("\n"):
+                    output.write(line)
+
+    # replace file with original name
+    os.replace('temp.txt', 'urls.txt')
     with open('urls.txt') as f:
         lines = [line.rstrip() for line in f]
 
@@ -107,10 +116,6 @@ def main_job(year,month,date,hour,minute,second,name,path,page,username,password
 
 
 main_job(2021,8,15,8,9,0,'dogs',r'C:\Users\ADMIN\Downloads\chromedriver_win32\chromedriver.exe',1,'sarkarsar123@gmail.com','a123b123','sarkarsar123@gmail.com')
-
-
-
-
 
 
 
